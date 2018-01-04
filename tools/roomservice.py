@@ -43,7 +43,7 @@ except ImportError:
 DEBUG = False
 default_manifest = ".repo/manifest.xml"
 
-custom_local_manifest = ".repo/local_manifests/pixel_manifest.xml"
+custom_local_manifest = ".repo/local_manifests/pixel.xml"
 custom_default_revision = "oreo-mr1"
 custom_dependencies = "aosp.dependencies"
 org_manifest = "pixel-devices"  # leave empty if org is provided in manifest
