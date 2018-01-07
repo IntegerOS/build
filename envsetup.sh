@@ -705,7 +705,6 @@ function lunch()
       unset TARGET_PLATFORM_VERSION
     fi
     export TARGET_BUILD_TYPE=release
-    export TARGET_ARCH=$(gettargetarch)
 
     echo
 
