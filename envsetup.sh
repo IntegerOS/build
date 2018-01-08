@@ -694,16 +694,21 @@ function lunch()
     fi
     if [ $? -ne 0 ]
     then
+        echo
+        echo "** Don't have a product spec for: '$product'"
+        echo "** Do you have the right repo manifest?"
+        product=
+    fi
+
+    if [ -z "$product" -o -z "$variant" ]
+    then
+        echo
         return 1
     fi
 
-    export TARGET_PRODUCT=$(get_build_var TARGET_PRODUCT)
-    export TARGET_BUILD_VARIANT=$(get_build_var TARGET_BUILD_VARIANT)
-    if [ -n "$version" ]; then
-      export TARGET_PLATFORM_VERSION=$(get_build_var TARGET_PLATFORM_VERSION)
-    else
-      unset TARGET_PLATFORM_VERSION
-    fi
+    export TARGET_PRODUCT=$product
+    export TARGET_BUILD_VARIANT=$variant
+    export TARGET_PLATFORM_VERSION=$version
     export TARGET_BUILD_TYPE=release
 
     echo
